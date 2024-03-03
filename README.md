@@ -1,29 +1,16 @@
-# projectTemplate
-Flutter Project Template Using BloC
+# flutter_bloc_template
 
+A new Flutter project.
 
-Implementations
+## Getting Started
 
-Theme switching
+This project is a starting point for a Flutter application.
 
-Advanced Routing
+A few resources to get you started if this is your first Flutter project:
 
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-Routing example with passing data to another screen
-
-How to change app name in order to use it
-
-Android
-Open AndroidManifest.xml located at android/app/src/main
-
-<application
-    android:label="App Name" ...> // Your app name here
-IOS
-Open info.plist located at ios/Runner
-
-<key>CFBundleName</key>
-<string>App Name</string> // Your app name here
-And than flutter clean
-
-Contributing
-Feel free to make contributions and pull requests.
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
