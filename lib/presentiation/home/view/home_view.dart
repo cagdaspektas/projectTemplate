@@ -26,31 +26,41 @@ class _View extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = di<HomeBloc>();
 
-    return BlocSelector<HomeBloc, HomeState, HomeStatus>(
-        selector: (state) => state.status,
-        builder: (context, status) {
-          switch (status) {
-            case HomeStatus.initial:
-              //  bloc.add(FetchData());
-              return const Center(
-                  child: CircularProgressIndicator(
-                color: Colors.red,
-              ));
-            case HomeStatus.validationInProgress:
-              return const Center(
-                  child: CircularProgressIndicator(
-                color: Colors.red,
-              ));
-
-            case HomeStatus.validationSuccess:
-              return Center(
-                child: Text(
-                  bloc.carsModel?.cars?[0].id.toString() ?? "",
-                ),
-              );
-            default:
-              return const Text("veri yok");
-          }
-        });
+    return Scaffold(
+      body: BlocListener<HomeBloc, HomeState>(
+        bloc: bloc,
+        listener: (context, state) {},
+        child: BlocBuilder<HomeBloc, HomeState>(
+          bloc: bloc,
+          builder: (context, state) {
+            switch (state.status) {
+              case HomeStatus.initial:
+                bloc.add(const HomeInitial());
+                return const Center(
+                    child: CircularProgressIndicator(
+                  color: Colors.red,
+                ));
+              case HomeStatus.validationInProgress:
+                return const Center(
+                    child: CircularProgressIndicator(
+                  color: Colors.red,
+                ));
+              case HomeStatus.validationSuccess:
+                return Center(
+                  child: Text(
+                    state.carsModel?.cars?[0].car.toString() ?? "",
+                    style: const TextStyle(fontSize: 15.0, color: Colors.black),
+                    //   bloc.carsModel?.cars?[0].car.toString() ?? "sdasdasd",
+                  ),
+                );
+              case HomeStatus.validationFailure:
+                return const SizedBox();
+              default:
+                return const Text("veri yok");
+            }
+          },
+        ),
+      ),
+    );
   }
 }

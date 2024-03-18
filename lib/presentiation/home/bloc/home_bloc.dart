@@ -9,18 +9,17 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required this.carService}) : super(const HomeState()) {
-    on<HomeInitial>(_onReset);
+    on<HomeInitial>(_onInitial);
   }
 
-  CarService carService;
+  final CarService carService;
   CarsModel? carsModel;
 
-  Future<void> _onReset(HomeInitial event, Emitter<HomeState> emit) async {
+  Future<void> _onInitial(HomeInitial event, Emitter<HomeState> emit) async {
     emit(state.copyWith(status: HomeStatus.validationInProgress));
-    CarsModel? response = await carService.getCars();
-    if (carService.repositoryManager?.response?.statusCode != 200) {
-      carsModel = response;
-      emit(state.copyWith(status: HomeStatus.validationSuccess, carsModel: response));
+    carsModel = await carService.getCars();
+    if (carService.repositoryManager?.response?.statusCode == 200) {
+      emit(state.copyWith(status: HomeStatus.validationSuccess, carsModel: carsModel));
     } else {
       emit(state.copyWith(status: HomeStatus.validationFailure, carsModel: null));
     }

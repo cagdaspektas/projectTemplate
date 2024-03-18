@@ -13,14 +13,11 @@ class CarService extends CarServiceHelper {
 
   @override
   Future<CarsModel?> getCars() async {
-    try {
-      CarsModel? cars = await repositoryManager?.fetch(path: "cars", model: CarsModel());
-      if (repositoryManager?.response?.statusCode == 200) {
-        return cars;
-      }
-    } on DioException catch (e) {
-      print(e);
+    CarsModel? cars = await repositoryManager?.fetch(path: "car", model: CarsModel());
+    if (repositoryManager?.response?.statusCode == 200) {
+      return cars;
+    } else {
+      return null;
     }
-    return null;
   }
 }

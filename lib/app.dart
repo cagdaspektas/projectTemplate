@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
           home: MaterialApp(
         debugShowCheckedModeBanner: false,
-        navigatorKey: InitializeApp.navigatorKey,
+        scaffoldMessengerKey: InitializeApp.snackbarKey,
         theme: ThemeManager.craeteTheme((AppThemeLight())),
         locale: context.locale,
         supportedLocales: context.supportedLocales,

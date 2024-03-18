@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import '../di/dependency_injection.dart';
 
 class InitializeApp {
-  static final navigatorKey = GlobalKey<NavigatorState>();
+  static final GlobalKey<ScaffoldMessengerState> snackbarKey = GlobalKey<ScaffoldMessengerState>();
+  // static final navigatorKey = GlobalKey<NavigatorState>();
 
   static Future<void> setupInit() async {
     WidgetsFlutterBinding.ensureInitialized();
