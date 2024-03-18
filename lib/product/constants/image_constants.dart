@@ -7,13 +7,13 @@ class ImageConstants {
 
   ImageConstants._init();
   final String mainLogo = 'image/main_logo'.toPNG;
-
 }
 
 extension _ImageConstantsExtension on String {
   String get toPNG => 'assets/$this.png';
-  String get toJPEG => 'assets/$this.jpeg';
+  //TODO BU SATIR İHTİYAÇ DAHLİNDE AÇILACAK
+  /*  String get toJPEG => 'assets/$this.jpeg';
   String get toJSON => 'assets/$this.json';
   String get toSVG => 'assets/$this.svg';
-  String get toGif => 'assets/$this.gif';
+  String get toGif => 'assets/$this.gif'; */
 }

@@ -14,6 +14,7 @@ class NetworkManager {
   NetworkManager._internal() {
     dio = Dio(
       BaseOptions(
+        //TODO BASE URL DEĞİŞECEK
         baseUrl: "https://myfakeapi.com/api/",
         receiveTimeout: const Duration(seconds: 20), // 20 seconds
         connectTimeout: const Duration(seconds: 20),

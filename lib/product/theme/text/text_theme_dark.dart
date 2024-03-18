@@ -41,8 +41,8 @@ class TextThemeDark implements ITextTheme {
 
   TextThemeDark({this.primaryColor}) {
     data = TextTheme(
-      headline6: headline6,
-      subtitle1: subtitle1,
+      titleLarge: headline6,
+      titleMedium: subtitle1,
     ).apply(bodyColor: primaryColor);
   }
 }

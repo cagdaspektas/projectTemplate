@@ -1,5 +1,3 @@
-import 'package:dio/dio.dart';
-
 import '../../core/repository/repository_manager.dart';
 import '../models/car_model.dart';
 
